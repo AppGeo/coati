@@ -1,0 +1,32 @@
+{
+  "name": "gj2pg",
+  "version": "0.1.0",
+  "description": "geoJSON to PostgreSQL/PostGIS",
+  "main": "lib/index.js",
+  "preferGlobal": "true",
+  "bin": {
+    "gj2pg": "lib/gj2pg-cli.js"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "geojson",
+    "postgres",
+    "postgresql",
+    "json",
+    "gis",
+    "geometry",
+    "upload"
+  ],
+  "author": "Ilya Radchenko",
+  "license": "MIT",
+  "dependencies": {
+    "through2": "~0.4.1",
+    "bluebird": "~1.0.7",
+    "geojson-stream": "0.0.0",
+    "minimist": "0.0.8",
+    "pg.js": "~2.11.1",
+    "pg-query-stream": "~0.4.0"
+  }
+}
