@@ -1,6 +1,6 @@
 {
   "name": "gj2pg",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "geoJSON to PostgreSQL/PostGIS",
   "main": "lib/index.js",
   "preferGlobal": "true",
