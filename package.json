@@ -6,7 +6,7 @@
   "main": "lib/index.js",
   "preferGlobal": "true",
   "bin": {
-    "gj2pg": "lib/gj2pg-cli.js"
+    "gj2pg": "bin/gj2pg"
   },
   "scripts": {
     "test": "mocha"
