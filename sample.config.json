@@ -1,5 +1,7 @@
 {
+  "host": "localhost",
   "user": "ctbb",
   "password": "ctbb",
-  "database": "ctbb"
+  "database": "ctbb",
+  "charset": "utf8"
 }

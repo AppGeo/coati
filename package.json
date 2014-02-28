@@ -1,6 +1,6 @@
 {
   "name": "gj2pg",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "geoJSON to PostgreSQL/PostGIS",
   "homepage": "https://github.com/AppGeo/gj2pg",
   "main": "lib/index.js",
@@ -31,7 +31,8 @@
     "bluebird": "~1.0.7",
     "geojson-stream": "0.0.0",
     "minimist": "0.0.8",
-    "pg.js": "~2.11.1",
-    "pg-query-stream": "~0.4.0"
+    "pg-query-stream": "~0.4.0",
+    "knex": "~0.5.8",
+    "pg": "~2.11.1"
   }
 }
