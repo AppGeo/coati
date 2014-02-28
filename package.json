@@ -11,9 +11,9 @@
   "scripts": {
     "test": "mocha"
   },
-  "repository": { 
-    "type" : "git",
-    "url" : "http://github.com/AppGeo/gj2pg.git"
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/AppGeo/gj2pg.git"
   },
   "keywords": [
     "geojson",
@@ -34,6 +34,7 @@
     "pg-query-stream": "~0.4.0",
     "knex": "~0.5.8",
     "pg": "~2.11.1",
-    "cli-spinner": "^0.1.5"
+    "cli-spinner": "^0.1.5",
+    "commander": "^2.1.0"
   }
 }
