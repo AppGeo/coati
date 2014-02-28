@@ -2,6 +2,7 @@
   "name": "gj2pg",
   "version": "0.2.1",
   "description": "geoJSON to PostgreSQL/PostGIS",
+  "homepage": "https://github.com/AppGeo/gj2pg",
   "main": "lib/index.js",
   "preferGlobal": "true",
   "bin": {
@@ -9,6 +10,10 @@
   },
   "scripts": {
     "test": "mocha"
+  },
+  "repository": { 
+    "type" : "git",
+    "url" : "http://github.com/AppGeo/gj2pg.git"
   },
   "keywords": [
     "geojson",
