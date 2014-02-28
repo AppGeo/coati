@@ -6,6 +6,7 @@ Streams geoJSON data to a PostGIS configured PostgreSQL database.
 
 To get started, install `gj2pg`, via `npm install --save gj2pg`.
 
+
 ## Usage
 
 ```js
@@ -45,9 +46,17 @@ Also accepts:
 * `-c` for config file path, but looks for `config.json` or `config.js` that exports a JSON object (see above for format).
 * `-S` for custom schema name, defaults to `public`.
 
+
 ## Todo
 
 * Figure out a more clear way to map properties/geometry property
 * Up for suggestions..
 * Split out CLI app to own repo
 * Add help to CLI
+
+
+## Special Thanks
+
+To [Calvin Metcalf][1], who wrote most of the original code.
+
+[1]: https://github.com/calvinmetcalf
