@@ -13,15 +13,15 @@ var GJ2PG = require('gj2pg'),
   config = require('./config'),
   gj2pg;
 
-  gj2pg = new GJ2PG({
-    config: config,
-    inputFilePath: 'data.json',
-    tableName: 'countries',
-    propertiesMap: ['ObjID:id', 'Country_Name:name'],
-    geometryColumnName: 'geom'
-  });
+gj2pg = new GJ2PG({
+  config: config,
+  inputFilePath: 'data.json',
+  tableName: 'countries',
+  propertiesMap: ['ObjID:id', 'Country_Name:name'],
+  geometryColumnName: 'geom'
+});
 
-  gj2pg.go();
+gj2pg.go();
 ```
 
 The `config` format is JSON in the following format:
