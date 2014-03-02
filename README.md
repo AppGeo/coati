@@ -42,17 +42,13 @@ npm install -g gj2pg
 gj2pg -f data.json -t providers -m 'OBJECTID:id, ProvName:name' -g geom
 ```
 
-Also accepts:
-* `-c` for config file path, but looks for `config.json` or `config.js` that exports a JSON object (see above for format).
-* `-S` for custom schema name, defaults to `public`.
+See help, via `gj2pg -h` for more information and available options.
 
 
 ## Todo
 
 * Figure out a more clear way to map properties/geometry property
 * Up for suggestions..
-* Split out CLI app to own repo
-* Add help to CLI
 
 
 ## Special Thanks
