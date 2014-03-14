@@ -9,7 +9,7 @@
     "gj2pg": "bin/gj2pg"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --reporter spec"
   },
   "repository": {
     "type": "git",
@@ -35,5 +35,9 @@
     "pg": "~2.11.1",
     "cli-spinner": "^0.1.5",
     "commander": "^2.1.0"
+  },
+  "devDependencies": {
+    "chai": "^1.9.0",
+    "mocha": "^1.18.0"
   }
 }
