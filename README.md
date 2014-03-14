@@ -1,6 +1,6 @@
 # gj2pg
 
-Streams geoJSON data to a PostGIS configured PostgreSQL database.
+Streams GeoJSON data to a PostGIS configured PostgreSQL database.
 
 *Note: Casts all geometry using `ST_Multi`, let me know if this is a problem*
 
