@@ -1,4 +1,4 @@
-# gj2pg
+# gj2pg [![Build Status](https://travis-ci.org/AppGeo/gj2pg.png?branch=master)](https://travis-ci.org/AppGeo/gj2pg)
 
 Streams GeoJSON data to a PostGIS configured PostgreSQL database.
 
