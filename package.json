@@ -34,6 +34,8 @@
     "knex": "~0.5.8",
     "pg": "~2.11.1",
     "cli-spinner": "^0.1.5",
+    "readable-stream": "^1.0.26",
+    "stream-combiner": "0.0.4",
     "commander": "^2.1.0"
   },
   "devDependencies": {

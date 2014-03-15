@@ -2,3 +2,4 @@ config.json
 data.geojson
 data.json
 node_modules
+npm-debug.log

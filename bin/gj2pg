@@ -1,6 +1,6 @@
 #! /usr/bin/env node
 
-var GJ2PG = require('../lib'),
+var pipeline = require('../lib'),
   path = require('path'),
   pkg = require('../package'),
   cli = require('commander'),
@@ -11,24 +11,24 @@ function init() {
   setupCli();
 
   var configPath = cli.dbConfig || path.resolve('config'),
-    gj2pg = new GJ2PG({
-    inputFilePath: cli.file,
-    config: require(configPath),
-    tableName: cli.dbTable,
-    propertiesMap: cli.columnMap,
-    geometryColumnName: cli.geometryColumn,
-    schema: cli.dbSchema || 'public',
-    operation: cli.queryOperation || 'insert',
-    pk: cli.primaryKey || 'id',
-    onStart: function () {
-      spinner.start();
-    },
-    onComplete: function () {
-      spinner.stop();
-    }
-  });
+    options = {
+      inputFilePath: cli.file,
+      config: require(configPath),
+      tableName: cli.dbTable,
+      propertiesMap: cli.columnMap,
+      geometryColumnName: cli.geometryColumn,
+      schema: cli.dbSchema || 'public',
+      operation: cli.queryOperation || 'insert',
+      pk: cli.primaryKey || 'id',
+      onStart: function () {
+        spinner.start();
+      },
+      onComplete: function () {
+        spinner.stop();
+      }
+    };
 
-  gj2pg.go();
+  pipeline.go(options);
 }
 
 function setupCli() {
@@ -47,11 +47,14 @@ function setupCli() {
 
 function map(value) {
   if (typeof(value) === 'string') {
-    if(value.indexOf(':') > -1) {
-      return trim(value.split(':'));
+    if(value.indexOf(',') > -1) {
+      return trim(value.split(','));
     }
-    else if (value.indexOf('=') > -1) {
-      return trim(value.split('='));
+    else if (value.indexOf(' ') > -1) {
+      return trim(value.split(' '));
+    }
+    else {
+      return trim([value]);
     }
   }
 }
