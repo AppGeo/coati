@@ -1,4 +1,4 @@
-var QueryStream = require('../lib/queryStream');
+var QueryStream = require('../../lib/queryStream');
 
 module.exports = function () {
   it('no options throws error', function () {

@@ -1,10 +1,12 @@
 var chai = require('chai'),
-  transformStreamTests = require('./transform-stream'),
-  queryStreamTests = require('./query-stream'),
-  pipelineTests = require('./pipeline');
+  transformStreamTests = require('./unit/transform-stream'),
+  queryStreamTests = require('./unit/query-stream'),
+  pipelineTests = require('./unit/pipeline');
 
 chai.should();
 
-describe('TransformStream', transformStreamTests);
-describe('QueryStream', queryStreamTests);
-describe('Pipeline', pipelineTests);
+describe('GJ2PG Unit:', function () {
+  describe('TransformStream', transformStreamTests);
+  describe('QueryStream', queryStreamTests);
+  describe('Pipeline', pipelineTests);
+});

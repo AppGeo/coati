@@ -20,6 +20,7 @@ function init() {
       schema: cli.dbSchema || 'public',
       operation: cli.queryOperation || 'insert',
       pk: cli.primaryKey || 'id',
+      srid: cli.srid,
       onStart: function () {
         spinner.start();
       },
@@ -42,6 +43,7 @@ function setupCli() {
     .option('-g, --geometry-column [columnName]', 'Name of your table\'s geometry column')
     .option('-o, --query-operation [operation]', 'Operation to perform with data. Available options: `insert`, `update`, and `delete`, default is `insert`')
     .option('-p, --primary-key [pkColumnName]', 'Column name of Primary Key, used in conjunction with -o, when `update` or `delete`')
+    .option('-s, --srid [srid]', 'SRID value for use in CRS for GeoJSON, optional, defaults to `EPSG:4326`')
     .parse(process.argv);
 }
 
