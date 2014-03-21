@@ -55,6 +55,6 @@ See help, via `gj2pg -h` for more information and available options.
 To [Calvin Metcalf][1], who wrote most of the original code.
 
 [1]: https://github.com/calvinmetcalf
-[2]: https://travis-ci.org/AppGeo/coati.png?branch=master
+[2]: https://travis-ci.org/AppGeo/coati.svg?branch=master
 [3]: https://travis-ci.org/AppGeo/coati
 [4]: http://upload.wikimedia.org/wikipedia/commons/e/e0/Coati_%28PSF%29.jpg
