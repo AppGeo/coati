@@ -1,4 +1,6 @@
-# gj2pg [![Build Status](https://travis-ci.org/AppGeo/gj2pg.png?branch=master)](https://travis-ci.org/AppGeo/gj2pg)
+# Coati [![Build Status][2]][3]
+
+![coati][4]
 
 Streams GeoJSON data to a PostGIS configured PostgreSQL database.
 
@@ -10,19 +12,16 @@ To get started, install `gj2pg`, via `npm install --save gj2pg`.
 ## Usage
 
 ```js
-var GJ2PG = require('gj2pg'),
-  config = require('./config'),
-  gj2pg;
+var gj2pg = require('gj2pg'),
+  config = require('./config');
 
-gj2pg = new GJ2PG({
+gj2pg.go({
   config: config,
   inputFilePath: 'data.json',
   tableName: 'countries',
   propertiesMap: ['ObjID:id', 'Country_Name:name'],
   geometryColumnName: 'geom'
 });
-
-gj2pg.go();
 ```
 
 The `config` format is JSON in the following format:
@@ -56,3 +55,6 @@ See help, via `gj2pg -h` for more information and available options.
 To [Calvin Metcalf][1], who wrote most of the original code.
 
 [1]: https://github.com/calvinmetcalf
+[2]: https://travis-ci.org/AppGeo/coati.png?branch=master
+[3]: https://travis-ci.org/AppGeo/coati
+[4]: http://upload.wikimedia.org/wikipedia/commons/e/e0/Coati_%28PSF%29.jpg
