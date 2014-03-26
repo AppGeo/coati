@@ -1,7 +1,7 @@
 {
   "host": "localhost",
-  "user": "ctbb",
-  "password": "ctbb",
-  "database": "ctbb",
+  "user": "myuser",
+  "password": "raNd0mP@ss",
+  "database": "mydb",
   "charset": "utf8"
 }
