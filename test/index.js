@@ -5,7 +5,7 @@ var chai = require('chai'),
 
 chai.should();
 
-describe('GJ2PG Unit:', function () {
+describe('Coati Unit:', function () {
   describe('TransformStream', transformStreamTests);
   describe('QueryStream', queryStreamTests);
   describe('Pipeline', pipelineTests);

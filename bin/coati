@@ -1,0 +1,107 @@
+#! /usr/bin/env node
+
+var pipeline = require('../lib'),
+  path = require('path'),
+  pkg = require('../package'),
+  cli = require('ltcdr'),
+  Spinner = require('cli-spinner').Spinner,
+  spinner = new Spinner('processing..');
+
+function init() {
+  cli.version(pkg.version)
+    .usage('<insert|update|delete> [options] [properties-map]')
+    .option('-f, --file [inputFilePath]', 'Input GeoJSON file')
+    .option('-c, --db-config [configPath]', 'Database configuration file, to establish a connection')
+    .option('-t, --db-table [tableName]', 'Database table into which data is to be inserted')
+    .option('-S, --db-schema [schema]', 'Name of schema for database')
+    .option('-g, --geometry-column [columnName]', 'Name of your table\'s geometry column')
+    .option('-s, --srid [srid]', 'SRID value for use in CRS for GeoJSON, optional, defaults to `EPSG:4326`');
+
+  cli.command('insert')
+    .description('Inserts GeoJSON data into postgreSQL')
+    .alias('i')
+    .action(insert);
+
+  cli.command('update [pk-column-name]')
+    .description('Updates postgreSQL data using GeoJSON data based on a primary key column')
+    .alias('u')
+    .action(update);
+
+  cli.command('delete [pk-column-name]')
+    .description('Deletes data from postgreSQL based on data found in GeoJSON')
+    .alias('d')
+    .action(del);
+
+  cli.command('*')
+    .action(insert);
+
+  if (!module.parent) {
+    cli.parse(process.argv);
+  }
+
+  return cli;
+}
+
+function assembleOptions(options) {
+  var configPath = options.dbConfig ? path.resolve(process.cwd(), options.dbConfig) : path.resolve(process.cwd(), 'config');
+
+  return {
+    inputFilePath: options.file,
+    config: require(configPath),
+    tableName: options.dbTable,
+    propertiesMap: options.args,
+    geometryColumnName: options.geometryColumn,
+    schema: options.dbSchema || 'public',
+    pk: options.primaryKey || 'id',
+    srid: options.srid,
+    onStart: function () {
+      spinner.start();
+    },
+    onComplete: function () {
+      spinner.stop();
+      process.exit();
+    }
+  };
+}
+
+function insert(args, options) {
+  options = options.parent || cli;
+  options.args = map(args);
+  pipeline.go('insert', assembleOptions(options));
+}
+
+function update(pkColumnName, options, args) {
+  console.log(pkColumnName, options);
+  options = options.parent || cli;
+  options.primaryKey = pkColumnName || 'id';
+  options.args = map(args);
+  pipeline.go('update', assembleOptions(options));
+}
+
+function del(pkColumnName, options) {
+  options.primaryKey = pkColumnName || 'id';
+  options.args = map(options.args);
+  pipeline.go('delete', assembleOptions(options));
+}
+
+function map(value) {
+  if (typeof(value) === 'string') {
+    if(value.indexOf(',') > -1) {
+      return trim(value.split(','));
+    }
+    else if (value.indexOf(' ') > -1) {
+      return trim(value.split(' '));
+    }
+    else {
+      return trim([value]);
+    }
+  }
+}
+
+function trim(arr) {
+  return arr.map(function (item) {
+    return item.trim();
+  });
+}
+
+module.exports = init();
