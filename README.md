@@ -24,13 +24,14 @@ coati.go('insert', {
 });
 ```
 
-The `config` format is JSON in the following format:
+The `config` format is JSON with the following structure:
 
 ```json
 {
   "user": "test",
   "password": "password",
-  "database": "myDb"
+  "database": "myDb",
+  "host": "localhost"
 }
 ```
 
@@ -54,7 +55,12 @@ See help, via `coati -h` for more information and available options.
 
 To [Calvin Metcalf][1], who wrote most of the original code.
 
+## License
+
+License is located [here][5].
+
 [1]: https://github.com/calvinmetcalf
-[2]: https://travis-ci.org/AppGeo/coati.png?branch=master
+[2]: https://travis-ci.org/AppGeo/coati.svg?branch=master
 [3]: https://travis-ci.org/AppGeo/coati
 [4]: http://upload.wikimedia.org/wikipedia/commons/e/e0/Coati_%28PSF%29.jpg
+[5]: https://github.com/AppGeo/coati/blob/master/LICENSE.md

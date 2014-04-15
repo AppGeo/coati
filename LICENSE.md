@@ -1,4 +1,4 @@
-#Copyright 2014 Ilya Radchenko, Calvin Metcalf, and Applied Geographics
+### Copyright 2014 Ilya Radchenko, Calvin Metcalf, and Applied Geographics
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
