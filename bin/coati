@@ -13,9 +13,9 @@ function init() {
     .option('-f, --file [inputFilePath]', 'Input GeoJSON file')
     .option('-c, --db-config [configPath]', 'Database configuration file, to establish a connection')
     .option('-t, --db-table [tableName]', 'Database table into which data is to be inserted')
-    .option('-S, --db-schema [schema]', 'Name of schema for database')
-    .option('-g, --geometry-column [columnName]', 'Name of your table\'s geometry column')
-    .option('-s, --srid [srid]', 'SRID value for use in CRS for GeoJSON, optional, defaults to `EPSG:4326`');
+    .option('-S, --db-schema [schema]', 'Name of schema for database', 'public')
+    .option('-g, --geometry-column [columnName]', 'Name of your table\'s geometry column', 'geom')
+    .option('-s, --srid [srid]', 'SRID value for use in CRS for GeoJSON, optional, defaults to `EPSG:4326`', 'EPSG:4326');
 
   cli.command('insert')
     .description('Inserts GeoJSON data into postgreSQL')
@@ -51,7 +51,7 @@ function assembleOptions(options) {
     tableName: options.dbTable,
     propertiesMap: options.args,
     geometryColumnName: options.geometryColumn,
-    schema: options.dbSchema || 'public',
+    schema: options.dbSchema,
     pk: options.primaryKey || 'id',
     srid: options.srid,
     onStart: function () {

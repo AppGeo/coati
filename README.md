@@ -6,14 +6,14 @@ Streams GeoJSON data to a PostGIS configured PostgreSQL database.
 
 *Note: Casts all geometry using `ST_Multi`, let me know if this is a problem*
 
-To get started, install `coati`, via `npm install --save coati`.
-
 
 ## Usage
 
+To get started, install `coati`, via `npm install --save coati`.
+
 ```js
-var coati = require('coati'),
-  config = require('./config');
+var coati = require('coati');
+var config = require('./config');
 
 coati.go('insert', {
   config: config,
@@ -35,11 +35,12 @@ The `config` format is JSON with the following structure:
 }
 ```
 
+
 ### Command Line
 
 ```
 npm install -g coati
-coati insert -f data.json -t providers -g geom 'OBJECTID:id, ProvName:name'
+coati insert -f data.json -c db.config -t providers -g geom 'OBJECTID:id, ProvName:name'
 ```
 
 See help, via `coati -h` for more information and available options.
@@ -47,13 +48,14 @@ See help, via `coati -h` for more information and available options.
 
 ## Todo
 
-* Figure out a more clear way to map properties/geometry property
+* Allow passing db arguments individually, e.g. `--db.name, --db.host, --db.user, --db.password`
 * Up for suggestions..
 
 
 ## Special Thanks
 
 To [Calvin Metcalf][1], who wrote most of the original code.
+
 
 ## License
 
