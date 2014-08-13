@@ -1,6 +1,6 @@
 {
   "name": "coati",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Transform GeoJSON data to PostgreSQL/PostGIS data",
   "homepage": "https://github.com/AppGeo/coati",
   "main": "lib/index.js",
