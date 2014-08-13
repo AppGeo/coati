@@ -5,6 +5,7 @@ module.exports = function () {
     rawMap,
     geometryColumn,
     data = {
+      geometry: {},
       properties: {
         propOne: 'hi',
         test: 'bye'
@@ -14,7 +15,7 @@ module.exports = function () {
   before(function () {
     rawMap = 'propOne:prop1, test:name';
     geometryColumn = 'geom';
-    stream = new TransformStream(rawMap, geometryColumn);
+    stream = new TransformStream(rawMap, geometryColumn, 'EPSG:4326');
   });
 
   it('no arguments throws error', function () {
@@ -35,7 +36,7 @@ module.exports = function () {
     var properties = stream.map.properties,
       values = stream._buildValues(properties, data);
 
-    values.should.deep.equal(['hi', 'bye']);
+    values.should.deep.equal(['hi', 'bye', '{"crs":{"type":"name","properties":{"name":"EPSG:4326"}}}']);
   });
 
   it('#_joinColumnsValues: join columns to respective values', function () {
